@@ -1,0 +1,264 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+        /* FONTE - FAMÍLIA */
+    --ff-heading: 'Staatliches', cursive;
+    --ff-texting: 'Palanquin', sans-serif;
+
+        /* FONTE - TAMANHO */
+    font-size: 62.5%; 
+ 
+    /* CORES */
+    --hue:250;
+    --bg-primary: hsl(var(--hue), 100%, 97%);
+    --bg-secondary: hsl(var(--hue),18%, 79%);
+}
+
+body{
+    background: var(--bg-primary);
+    font-family: var(--ff-texting);
+}
+
+h1 {
+    font-size: 4rem;
+    color: hsl(0, 0%, 100%);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+span{
+font-family: var(--ff-heading);
+text-transform: uppercase;
+letter-spacing: 0.5rem;
+line-height: 3.4rem;
+}
+
+header{
+    background:hsl(218, 17%, 62%);
+    display:grid;
+    padding-top: 3.2rem;
+    place-items: center;
+    }
+
+    #logo {
+        padding: 3.2rem 0;   
+    } 
+
+    .title{
+        background:var(--bg-secondary);
+        margin-bottom: 2.9rem;
+        padding: 0.8rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1.8rem 3.2rem 6rem;
+    }
+
+    .text {
+    font-family: 'Palanquin', sans-serif;
+    font-weight: normal;
+    font-size: 1.41rem;
+    line-height: 2.5rem;
+    color: hsl(274, 84%, 12%);
+    width: 31.5rem;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    }
+
+    .intro-desktop {
+        display: none;
+    }
+
+    .cards {
+        display: grid;
+        gap: 3.2rem;
+        margin-top: 5rem;
+    }
+
+ .cards .card{
+    position:relative;
+    width: 32rem;
+}
+
+.cards .card img{
+    width: 100%;
+    border-radius: 2rem;
+    
+    animation-name: downtop;
+    animation-duration: 800ms;
+    animation-fill-mode:backwards;
+}
+
+.cards .card span{    
+    position: absolute;
+    right:1.4rem;
+    top: 1.6rem;
+    border-radius: 2.0rem;
+    background: hsl(312, 91%, 96%);
+    width: 11.2rem;
+    color:hsl(232, 17%, 35%);
+    font-size: 2rem;
+    letter-spacing: 0.2em;
+    text-align: center;  
+
+    animation-name: topdown;
+    animation-duration: 800ms;
+    animation-fill-mode:forwards;
+} 
+
+.contato {
+    display: none;
+}
+
+.contato a {
+    font-family: var(--ff-heading);
+    letter-spacing: 0.2rem;
+    color: hsl(274, 84%, 12%);
+    font-weight: normal;
+    font-size: 1.4rem;
+    line-height: 2.8rem;
+    text-align: center;
+}
+
+
+@keyframes topdown{
+    0%{
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes downtop{
+    0%{
+        opacity: 0;
+        transform: translatey(15px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@media(min-width: 900px){
+    .page{
+        display: flex;
+    }
+
+    header{
+        width: 37.7rem;
+        height: 100vh;
+
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+    }
+
+    .title {
+        margin-bottom: 3.2rem;
+    }
+
+    .text {
+        display: none;
+    }
+
+    .intro-desktop {
+        display: block;
+        color: hsl(0, 0%, 100%);
+        font-size: 1.8rem;
+        line-height: 1.5rem;
+        width: 28rem;
+        text-align: center;
+    }
+    
+    .cards {
+        margin-left: 37.7rem;
+        grid-template-areas: 
+        'A B'
+        'C B'
+        'C D'
+        'E F';
+    }
+    
+    .cards .card:nth-child(1){
+        grid-area: A;
+    }
+    
+    .cards .card:nth-child(2){
+        grid-area: B;
+    }
+    
+    .cards .card:nth-child(3){
+        grid-area: D;
+    }
+    
+    .cards .card:nth-child(4){
+        grid-area: C;
+    }
+    
+    .cards .card:nth-child(5){
+        grid-area: E;
+    }
+    
+    .cards .card:nth-child(6){
+        grid-area: F;
+    } 
+
+    .contato {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position:absolute;
+        width:100vw;
+        height: 8rem;
+    }
+
+    }
+    
+    @media (min-width: 1440px){
+        .cards{
+            grid-template-areas:
+             'A B C'
+             'D B E'
+             'D F E';
+        }
+    
+    .cards .card:nth-child(1){
+        grid-area: A;
+    }
+    
+    .cards .card:nth-child(2){
+        grid-area: B;
+    }
+    
+    .cards .card:nth-child(3){
+        grid-area: C;
+    }
+    
+    .cards .card:nth-child(4){
+        grid-area: D;
+    }
+    
+    .cards .card:nth-child(5){
+        grid-area: F;
+    }
+    
+    .cards .card:nth-child(6){
+        grid-area: E;
+    }  
+}
